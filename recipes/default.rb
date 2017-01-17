@@ -90,10 +90,10 @@ if node['s3fs']['build_from_source']
     not_if { File.exist?('/usr/bin/s3fs') }
   end
 
-elsif node['s3fs']['custom_binary_source']
+elsif node['s3fs']['custom_binary_url']
   remote_file 'Install s3fs binary from custom URL' do
     path node['s3fs']['custom_binary_path']
-    source node['s3fs']['custom_binary_source']
+    source node['s3fs']['custom_binary_url']
     owner 'root'
     group 'root'
     mode '0755'
