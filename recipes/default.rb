@@ -90,6 +90,15 @@ if node['s3fs']['build_from_source']
     not_if { File.exist?('/usr/bin/s3fs') }
   end
 
+elsif node['s3fs']['custom_binary_source']
+  remote_file 'Install s3fs binary from custom URL' do
+    path node['s3fs']['custom_binary_path']
+    source node['s3fs']['custom_binary_source']
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
+
 end
 
 def retrieve_s3_buckets(s3_data) # rubocop:disable Metrics/MethodLength

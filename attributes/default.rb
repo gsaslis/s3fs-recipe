@@ -1,4 +1,6 @@
 default['s3fs']['build_from_source'] = true
+default['s3fs']['custom_binary_source'] = nil
+default['s3fs']['custom_binary_path'] = '/usr/bin/s3fs'
 
 case node['platform']
 when 'opensuse'
