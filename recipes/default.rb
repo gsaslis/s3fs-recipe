@@ -91,6 +91,7 @@ if node['s3fs']['build_from_source']
   end
 
 elsif node['s3fs']['custom_binary_url']
+
   remote_file 'Install s3fs binary from custom URL' do
     path node['s3fs']['custom_binary_path']
     source node['s3fs']['custom_binary_url']
